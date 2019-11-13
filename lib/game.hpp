@@ -21,7 +21,6 @@ public:
 
 	Game();
 	~Game();
-
 };
 
 #endif /*GAME_HPP*/

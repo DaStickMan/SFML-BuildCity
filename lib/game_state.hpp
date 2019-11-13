@@ -1,6 +1,7 @@
 #ifndef GAME_STATE_HPP
 #define GAME_STATE_HPP
 #include "game.hpp"
+#include <iostream>
 
 #endif /* GAME_STATE_HPP */
 
@@ -12,4 +13,7 @@ public:
 	virtual void draw(const float dt) = 0;
 	virtual void update(const float dt) = 0;
 	virtual void draw() = 0;
+	virtual void handleInput() = 0;
+
+	virtual ~GameState(){};
 };
