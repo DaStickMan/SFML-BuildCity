@@ -1,5 +1,5 @@
 #include "Main.hpp"
-
+using namespace std;
 int main()
 {
 	std::cout << "Hello World!" << std::endl;
@@ -9,7 +9,7 @@ int main()
 	__windowsHelper.setIcon(window.getSystemHandle());
 #endif
 
-	sf::CircleShape shape(window.getSize().x/2);
+	sf::CircleShape shape(window.getSize().x / 2);
 	shape.setFillColor(sf::Color::White);
 
 	sf::Texture shapeTexture;
@@ -24,6 +24,25 @@ int main()
 		{
 			if (event.type == sf::Event::Closed)
 				window.close();
+
+			if (event.type == sf::Event::MouseButtonPressed)
+			{
+				switch (event.key.code)
+				{
+				case sf::Mouse::Left:
+					cout << "left button pressed" << endl;
+					break;
+				default:
+					break;
+				}
+			}
+		}
+
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+		{
+			cout << "ESPAÇO";
+
+			shape.move(0.1f,0.1f);
 		}
 
 		window.clear();
