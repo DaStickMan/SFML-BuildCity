@@ -34,7 +34,7 @@
 	"tasks": [
 		{
 			"label": "Build & Run: Release",
-			"command": "bash ./build.sh buildrun Release vscode",
+			"command": "bash ./build.sh buildrun Release vscode -c",
 			"type": "shell",
 			"group": {
 				"kind": "build",
@@ -42,7 +42,7 @@
 			},
 			"problemMatcher": [
 				"$gcc"
-			],
+			]
 		},
 		{
 			"label": "Build: Release",

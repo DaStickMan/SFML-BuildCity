@@ -14,8 +14,7 @@ public:
 	void loadTexture(const std::string &name, const std::string &filename);
 	sf::Texture &getRef(const std::string &texture);
 
-	TextureManager();
-
+	TextureManager() {}
 };
 
 #endif /* TEXTURE_MANAGER_HPP */

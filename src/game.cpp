@@ -4,6 +4,7 @@
 
 #include "game.hpp"
 #include "game_state.hpp"
+#include "texture_manager.hpp"
 
 void Game::pushState(GameState *state)
 {
@@ -49,16 +50,25 @@ void Game::gameLoop()
 
 		peekState()->handleInput();
 		peekState()->update(dt);
-		this->window.clear(sf::Color::Black);
+		this->window.clear();
 		peekState()->draw(dt);
 		this->window.display();
 	}
 }
 
+void Game::loadTextures()
+{
+	texmgr.loadTexture("background", "media/background.jpg");
+}
+
 Game::Game()
 {
+	this->loadTextures();
+
 	this->window.create(sf::VideoMode(800, 600), "City Builder");
 	this->window.setFramerateLimit(60);
+
+	this->background.setTexture(this->texmgr.getRef("background"));
 }
 
 Game::~Game()

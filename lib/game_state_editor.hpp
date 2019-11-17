@@ -7,18 +7,16 @@
 
 class GameStateEditor : public GameState
 {
-    private:
-
+private:
     sf::View gameView;
     sf::View guiView;
 
-    public:
+public:
+    void draw(const float dt) override;
+    void update(const float dt);
+    void handleInput();
 
-    virtual void draw(const float dt);
-    virtual void update(const float dt);
-    virtual void handleInput();
-
-    GameStateEditor(Game* game);
+    GameStateEditor(Game *game);
 };
 
 #endif /* GAME_STATE_EDITOR_HPP */

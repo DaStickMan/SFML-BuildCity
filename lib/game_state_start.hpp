@@ -12,9 +12,9 @@ private:
 	void loadgame();
 
 public:
-	virtual void draw(const float dt);
-	virtual void update(const float dt);
-	virtual void handleInput();
+	void draw(const float dt);
+	void update(const float dt);
+	void handleInput();
 
 	GameStateStart(Game *game);
 };
