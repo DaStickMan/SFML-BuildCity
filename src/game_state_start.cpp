@@ -6,30 +6,29 @@
 
 GameStateStart::GameStateStart(Game *game)
 {
-	this->game = game;
-	sf::Vector2f pos = sf::Vector2f(this->game->window.getSize());
-	this->view.setSize(pos);
-	pos *= 0.5f;
-	this->view.setCenter(pos);
-	return;
+    this->game = game;
+    sf::Vector2f pos = sf::Vector2f(this->game->window.getSize());
+    this->view.setSize(pos);
+    pos *= 0.5f;
+    this->view.setCenter(pos);
+    return;
 }
 
 void GameStateStart::draw(const float dt)
 {
-	std::cout << dt << std::endl;
+    (void)dt;
 
-	this->game->window.setView(this->view);
+    this->game->window.setView(this->view);
 
-	this->game->window.clear(sf::Color::Black);
-	this->game->window.draw(this->game->background);
-	return;
+    this->game->window.clear(sf::Color::Black);
+    this->game->window.draw(this->game->background);
+    return;
 }
 
 void GameStateStart::update(const float dt)
 {
-	std::cout << dt << std::endl;
-
-	return;
+    (void)dt;
+    return;
 }
 
 void GameStateStart::handleInput()
@@ -74,5 +73,5 @@ void GameStateStart::handleInput()
 
 void GameStateStart::loadgame()
 {
-	this->game->pushState(new GameStateEditor(this->game));
+    this->game->pushState(new GameStateEditor(this->game));
 }

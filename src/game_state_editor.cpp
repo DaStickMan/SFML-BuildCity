@@ -2,21 +2,27 @@
 
 #include "game_state.hpp"
 #include "game_state_editor.hpp"
+#include "map.hpp"
+
+Map map;
 
 void GameStateEditor::draw(const float dt)
 {
-	std::cout << dt << std::endl;
+    std::cout << "Desenhando: " << std::endl;
 
-	this->game->window.clear(sf::Color::Black);
-	this->game->window.draw(this->game->background);
-	return;
+    map.draw(this->game->window, dt);
+
+    this->game->window.clear(sf::Color::Black);
+    this->game->window.draw(this->game->background);
+    return;
 }
 
 void GameStateEditor::update(const float dt)
 {
-	std::cout << dt << std::endl;
+    std::cout << "Update: " << std::endl;
 
-	return;
+    (void)dt;
+    return;
 }
 
 void GameStateEditor::handleInput()
@@ -54,11 +60,17 @@ void GameStateEditor::handleInput()
 
 GameStateEditor::GameStateEditor(Game *game)
 {
-	this->game = game;
-	sf::Vector2f pos = sf::Vector2f(this->game->window.getSize());
-	this->guiView.setSize(pos);
-	this->gameView.setSize(pos);
-	pos *= 0.5f;
-	this->guiView.setCenter(pos);
-	this->gameView.setCenter(pos);
+    this->game = game;
+    sf::Vector2f pos = sf::Vector2f(this->game->window.getSize());
+    this->guiView.setSize(pos);
+    this->gameView.setSize(pos);
+    pos *= 0.5f;
+    this->guiView.setCenter(pos);
+    this->gameView.setCenter(pos);
+
+    for (size_t i = 0; i < 10; i++)
+    {
+        std::cout << "Desenhando: " << i << std::endl;
+        map.tiles.push_back(game->tileAtlas["grass"]);
+    }
 }
