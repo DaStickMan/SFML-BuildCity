@@ -47,7 +47,7 @@ public:
 
 		for (int i = 0; i < 100; i++)
 		{
-			if (i % 2 == 0)
+			if (i > 50)
 			{
 				this->tiles.push_back(tileAtlas.at("grass"));
 			}
