@@ -39,6 +39,25 @@ public:
 		this->numRegions[0] = 1;
 	}
 
+	Map(std::map<std::string, Tile> &tileAtlas)
+	{
+		this->width = 10;
+		this->height = 10;
+		this->tileSize = 8;
+
+		for (int i = 0; i < 100; i++)
+		{
+			if (i % 2 == 0)
+			{
+				this->tiles.push_back(tileAtlas.at("grass"));
+			}
+			else
+			{
+				this->tiles.push_back(tileAtlas.at("water"));
+			}
+		}
+	}
+
 	Map(const std::string &filename, unsigned int width, unsigned int height, std::map<std::string, Tile> &tileAtlas)
 	{
 		this->tileSize = 8;

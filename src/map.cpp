@@ -83,11 +83,12 @@ void Map::save(const std::string &filename)
 
 void Map::draw(sf::RenderWindow &window, float dt)
 {
-	std::cout << "Desenhando: " << std::endl;
+	std::cout << "Desenhando mapa: " << std::endl;
 	for (unsigned int y = 0; y < this->height; ++y)
 	{
 		for (unsigned int x = 0; x < this->width; ++x)
 		{
+			std::cout << "Tile: X:" << x << " Y: "<< y << std::endl;
 			sf::Vector2f pos;
 			pos.x = (x - y) * this->tileSize + this->width * this->tileSize;
 			pos.y = (x + y) * this->tileSize * 0.5;

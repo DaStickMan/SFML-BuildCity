@@ -68,6 +68,7 @@ void Game::loadTextures()
 	texmgr.loadTexture("road", "media/road.png");
 
 	texmgr.loadTexture("background", "media/background.jpg");
+	texmgr.loadTexture("backgroundGame", "media/backgroundGame.png");
 }
 
 void Game::loadTiles()
@@ -123,6 +124,7 @@ Game::Game()
 	this->window.setFramerateLimit(60);
 
 	this->background.setTexture(this->texmgr.getRef("background"));
+	this->backgroundGame.setTexture(this->texmgr.getRef("backgroundGame"));
 }
 
 Game::~Game()

@@ -58,6 +58,9 @@ class Map
         this->height = 0;
         this->numRegions[0] = 1;
     }
+
+    Map(std::map<std::string, Tile>& tileAtlas);
+
     /* Load map from file constructor */
     Map(const std::string& filename, unsigned int width, unsigned int height,
         std::map<std::string, Tile>& tileAtlas)

@@ -2,25 +2,25 @@
 
 #include "game_state.hpp"
 #include "game_state_editor.hpp"
-#include "map.hpp"
-
-Map map;
 
 void GameStateEditor::draw(const float dt)
-{
-    std::cout << "Desenhando: " << std::endl;
 
-    map.draw(this->game->window, dt);
+{
+    std::cout << "Desenhando editor: " << std::endl;
 
     this->game->window.clear(sf::Color::Black);
-    this->game->window.draw(this->game->background);
+
+    this->game->window.setView(this->guiView);
+    this->game->window.draw(this->game->backgroundGame);
+
+    this->game->window.setView(this->gameView);
+    this->map.draw(this->game->window, dt);
+
     return;
 }
 
 void GameStateEditor::update(const float dt)
 {
-    std::cout << "Update: " << std::endl;
-
     (void)dt;
     return;
 }
@@ -68,9 +68,10 @@ GameStateEditor::GameStateEditor(Game *game)
     this->guiView.setCenter(pos);
     this->gameView.setCenter(pos);
 
-    for (size_t i = 0; i < 10; i++)
-    {
-        std::cout << "Desenhando: " << i << std::endl;
-        map.tiles.push_back(game->tileAtlas["grass"]);
-    }
+    map = Map(game->tileAtlas);
+
+    /* Centre the camera on the map */
+    sf::Vector2f centre(this->map.width, this->map.height*0.5);
+    centre *= float(this->map.tileSize);
+    gameView.setCenter(centre);
 }

@@ -4,12 +4,15 @@
 #include <SFML/Graphics.hpp>
 
 #include "game_state.hpp"
+#include "map.hpp"
 
 class GameStateEditor : public GameState
 {
 private:
     sf::View gameView;
     sf::View guiView;
+    Map map;
+
 
 public:
     void draw(const float dt) override;

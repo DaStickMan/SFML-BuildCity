@@ -25,6 +25,7 @@ public:
 
 	TextureManager texmgr;
 	sf::Sprite background;
+	sf::Sprite backgroundGame;
 
 	std::map<std::string, Tile> tileAtlas;
 
